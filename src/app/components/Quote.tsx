@@ -1,11 +1,12 @@
+
 // components/QuoteDisplay.tsx
 
-'use client';
+'use client'
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image'; // Import the Image component
-import { quotes, Quote } from '../utils/quotes'; // Adjust the import path as needed
-import { downloadQuoteAsImage } from '../utils/imageHelpers'; // Adjust the import path as needed
+import { quotes, Quote } from '../utils/quotes'; // Make sure this path matches your file structure
+import { downloadQuoteAsImage } from '../utils/imageHelpers';
+import Button from '../components/Button'; // Make sure this path matches your file structure
 
 const QuoteDisplay: React.FC = () => {
   const [currentQuote, setCurrentQuote] = useState<Quote>(quotes[0]);
@@ -15,13 +16,12 @@ const QuoteDisplay: React.FC = () => {
     // Update the quote
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
-
     // Fetch a new image
     try {
       const response = await fetch('/api/unsplash');
       if (response.ok) {
         const image = await response.json();
-        setImageUrl(image.urls.regular); // Use the correct property from the response
+        setImageUrl(image.urls.regular); // Make sure to use the correct property from the response
       } else {
         console.error('Failed to fetch images:', response.statusText);
       }
@@ -36,28 +36,28 @@ const QuoteDisplay: React.FC = () => {
   }, []);
 
   return (
-    <div style={{ padding: '20px' }}>
-      <div>
-        <div style={{ marginBottom: '20px' }}>
-          <p>"{currentQuote.text}"</p>
-          <p>- {currentQuote.author}</p>
+    <div className="content-grid grid grid-cols-1 md:grid-cols-2 relative">
+      <div className="text-blurb text-white p-8">
+        <p>Being a DJ isn&rsquo;t hard. Getting traction for your relentless self-promotion is.</p>
+        <p>That&rsquo;s why we have created this handy tool to up your Instagram game. Just generate a quote, download the image(s) and get to it. Easy!</p>
+        <p>Before you know it you will be booked for all those 30 minute sets!!</p>
         </div>
-        <button onClick={updateQuoteAndImage} style={{ marginRight: '10px' }}>Get another one</button>
-        <button onClick={() => downloadQuoteAsImage(currentQuote.text, currentQuote.author, 0.92)}>Download for your story</button>
+      <div className='unsplash-image relative aspect-square w-full h-auto'>
+        {imageUrl && <img className="object-cover h-screen w-screen" src={imageUrl} alt="Random"/>}
       </div>
-      <div>
-        {imageUrl && (
-          <Image 
-            src={imageUrl} 
-            alt="Random" 
-            width={400} // Specify desired width
-            height={700} // Specify desired height, maintaining aspect ratio
-            layout="responsive" // This makes the image scale nicely to the parent element's width
-          />
-        )}
+      <div className="quote-generate text-white">
+        <div className='tracking-tight'>
+          <p className="text-3xl">"{currentQuote.text}"</p>
+          {/* <p>- {currentQuote.author}</p> */}
+        </div>
+        <div className="flex w-100">
+          <Button className="inline-flex mr-2" onClick={updateQuoteAndImage}>Get another one</Button>
+          <Button className="inline-flex" onClick={() => downloadQuoteAsImage(currentQuote.text, currentQuote.author, 0.92)}>Download for your story</Button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default QuoteDisplay;
+

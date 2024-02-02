@@ -5,20 +5,14 @@ import QuoteDisplay from './components/Quote'; // Adjust the path as necessary
 
 const HomePage: React.FC = () => {
   return (
-    <main className="m-8 mt-16 bg-bg-blue p-8">
-      <header>
-        <Logo className=" relative -top-16 left-0"/>
+    <>
+      <header className='relative'>
+        <Logo className="mt-8 ml-24" />
       </header>
-      <div>
-        <p>Being a DJ isn&rsquo;t hard. Getting traction for your relentless self-promotion is.</p>
-        <p>That&rsquo;s why we have created this handy tool to up your Intagram game. Just generate a quote, download the image(s) and get to it. Easy!</p>
-        <p>Before you know it you will be booked for all those 30 minute sets!!</p>
-      </div>
-      <div>
-        <h1>Random Quote Generator</h1>
+      <main className="m-8 bg-black">
         <QuoteDisplay />
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 

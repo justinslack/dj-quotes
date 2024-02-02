@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sarabun: ['var(--font-sarabun)', 'sans-serif'],
+        'playfair-display': ['var(--font-playfair-display)', 'serif'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

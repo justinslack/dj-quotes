@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const unsplashResponse = await fetch(`https://api.unsplash.com/collections/${collectionId}/photos?client_id=${accessKey}&orientation=portrait`);
+    const unsplashResponse = await fetch(`https://api.unsplash.com/collections/${collectionId}/photos?client_id=${accessKey}&orientation=landscape`);
     if (!unsplashResponse.ok) {
       // If the response is not OK, throw to catch block
       throw new Error(`Failed to fetch images from Unsplash: ${unsplashResponse.statusText}`);

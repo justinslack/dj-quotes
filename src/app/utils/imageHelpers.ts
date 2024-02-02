@@ -23,10 +23,6 @@ export async function downloadQuoteAsImage(quote: string, author: string, qualit
     ctx.fillText(line, 50, 60 + index * 30); // Adjust x, y start position, and line height as needed
   });
 
-  // Draw author
-  ctx.font = '20px Arial'; // Smaller font for the author
-  ctx.fillText(`- ${author}`, 50, 60 + lines.length * 30 + 20); // Adjust position as needed
-
   // Convert the canvas to an image and download
   const imageURL = canvas.toDataURL('image/jpeg', quality);
   const link = document.createElement('a');
