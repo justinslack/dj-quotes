@@ -47,7 +47,7 @@ const QuoteDisplay: React.FC = () => {
       </div>
       <div className="quote-generate text-white">
         <div className='tracking-tight'>
-          <p className="text-3xl">"{currentQuote.text}"</p>
+          <p className="text-3xl">{currentQuote.text}</p>
           {/* <p>- {currentQuote.author}</p> */}
         </div>
         <div className="flex w-100">
