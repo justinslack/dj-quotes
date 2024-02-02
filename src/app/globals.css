@@ -28,7 +28,7 @@ body {
 }
 
 main {
-  height: calc(100vh - 166px);
+  height: calc(100vh - 64px);
   overflow: hidden;
 }
 
@@ -37,11 +37,5 @@ p {
 }
 
 .quote-generate {
-  background-color: blue;
   padding: 4rem;
-  position: absolute;
-  top: calc(50% - 166px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: fit-content;
 }
