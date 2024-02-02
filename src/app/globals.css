@@ -18,16 +18,30 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: Sarabun;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+main {
+  height: calc(100vh - 166px);
+  overflow: hidden;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+.quote-generate {
+  background-color: blue;
+  padding: 4rem;
+  position: absolute;
+  top: calc(50% - 166px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
 }

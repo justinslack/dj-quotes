@@ -1,13 +1,18 @@
 // pages/index.tsx
 import React from 'react';
+import {Logo} from './components/Logo'; // Adjust the path as necessary
 import QuoteDisplay from './components/Quote'; // Adjust the path as necessary
 
 const HomePage: React.FC = () => {
   return (
-    <div>
-      <h1>Random Quote Generator</h1>
-      <QuoteDisplay />
-    </div>
+    <>
+      <header className='relative'>
+        <Logo className="mt-8 ml-24" />
+      </header>
+      <main className="m-8 bg-black">
+        <QuoteDisplay />
+      </main>
+    </>
   );
 };
 
