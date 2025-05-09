@@ -36,16 +36,13 @@ const QuoteDisplay: React.FC = () => {
   }, []);
 
   return (
-    <div className="content-grid grid grid-cols-1 md:grid-cols-2 relative">
+    <div className="content-grid grid grid-cols-1 md:grid-cols-3 relative">
       <div className="text-blurb text-white p-8">
         <p>Being a DJ isn&rsquo;t hard. Getting traction for your relentless self-promotion is.</p>
         <p>That&rsquo;s why we have created this handy tool to up your Instagram game. Just generate a quote, download the image(s) and get to it. Easy!</p>
         <p>Before you know it you will be booked for all those 30 minute sets!!</p>
-        </div>
-      <div className='unsplash-image relative aspect-square w-full h-auto'>
-        {imageUrl && <img className="object-cover h-screen w-screen" src={imageUrl} alt="Random"/>}
       </div>
-      <div className="quote-generate text-white">
+      <div className="quote-generate bg-bg-blue">
         <div className='tracking-tight'>
           <p className="text-3xl">{currentQuote.text}</p>
           {/* <p>- {currentQuote.author}</p> */}
@@ -54,6 +51,9 @@ const QuoteDisplay: React.FC = () => {
           <Button className="inline-flex mr-2" onClick={updateQuoteAndImage}>Get another one</Button>
           <Button className="inline-flex" onClick={() => downloadQuoteAsImage(currentQuote.text, currentQuote.author, 0.92)}>Download for your story</Button>
         </div>
+      </div>
+      <div className='unsplash-image relative aspect-square w-full h-auto'>
+        {imageUrl && <img className="object-cover h-screen w-screen" src={imageUrl} alt="Random"/>}
       </div>
     </div>
   );
